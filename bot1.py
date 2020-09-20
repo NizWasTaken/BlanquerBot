@@ -4,7 +4,6 @@
 import tweepy
 import time
 
-
 CONSUMER_KEY = 'xxxx'
 CONSUMER_SECRET = 'xxxx'
 ACCESS_KEY = 'xxxx'

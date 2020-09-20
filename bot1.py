@@ -5,10 +5,10 @@ import tweepy
 import time
 
 
-CONSUMER_KEY = 'IKZ7qH0GR3Z77assB88M7xFwX'
-CONSUMER_SECRET = '5XcUcmceAC9rEHjAGaPsmeIzIGYUmSEJO5JlvHDSvfDx8J20sO'
-ACCESS_KEY = '1307636786311630848-gJgal7HJLLt36cJbPLOfNhnQcTEy6d'
-ACCESS_SECRET = 'eZ7YlTBgoJZ9suGQV3eveQziJpcAcHruhtZYXejfQLlTy'
+CONSUMER_KEY = 'xxxx'
+CONSUMER_SECRET = 'xxxx'
+ACCESS_KEY = 'xxxx'
+ACCESS_SECRET = 'xxxx'
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
@@ -29,7 +29,7 @@ def store_last_seen_id(last_seen_id, file_name):
     return
 
 def reply_to_tweets():
-    print('retrieving and replying to tweets...')
+    print('retrieving tweets...')
 
     last_seen_id = retrieve_last_seen_id(FILE_NAME)
     mentions = api.mentions_timeline(
@@ -40,7 +40,7 @@ def reply_to_tweets():
         last_seen_id = mention.id
         store_last_seen_id(last_seen_id, FILE_NAME)
         if 'ici' in mention.full_text.lower():
-            print('found cc')
+            print('found mention')
             print('responding back...')
             api.update_status('oui @' + mention.user.screen_name +
                     ', il faut fermer les ecoles !', mention.id)

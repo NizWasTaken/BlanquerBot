@@ -49,6 +49,12 @@ def reply_to_tweets():
             print('responding back...')
             api.update_status('erreur 404 @' + mention.user.screen_name +
                     ', voulez-vous dire la Palestine?', mention.id)
+            
+         elif 'cuisine' in mention.full_text.lower():
+            print('found mention')
+            print('responding back...')
+            api.update_status('oui @' + mention.user.screen_name +
+                    ', elle doit revenir a sa cuisine !', mention.id)
 while True:
     reply_to_tweets()
     time.sleep(20)

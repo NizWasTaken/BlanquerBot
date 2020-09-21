@@ -57,4 +57,4 @@ def reply_to_tweets():
                     ', elle doit revenir a sa cuisine !', mention.id)
 while True:
     reply_to_tweets()
-    time.sleep(20)
+    time.sleep(30)

@@ -59,7 +59,7 @@ def reply_to_tweets():
         elif 'grenouille' in mention.full_text.lower():
             print('found mention')
             print('responding back with image...')
-            api.update_with_media('grenouille.jpg', in_reply_to_status_id=mention.id,
+            api.update_with_media('DeGrenouille.jpg', in_reply_to_status_id=mention.id,
                                      auto_populate_reply_metadata=True)
 while True:
     reply_to_tweets()

@@ -41,7 +41,7 @@ def reply_to_tweets():
         if 'ici' in mention.full_text.lower():
             print('found mention')
             print('responding back...')
-            api.update_status('oui @' + mention.user.screen_name +
+            api.update_status('effectivement @' + mention.user.screen_name +
                     ', il faut fermer les ecoles !', mention.id)
         
         elif 'israel' in mention.full_text.lower():

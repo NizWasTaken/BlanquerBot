@@ -67,6 +67,13 @@ def reply_to_tweets():
             print('responding back...')
             api.update_status('absolument @' + mention.user.screen_name +
                     ', #liberezmediavenir ', mention.id)
+            
+        elif 'demission' in mention.full_text.lower():
+            print('found mention')
+            print('responding back...')
+            api.update_status('oui @' + mention.user.screen_name +
+                    ', Jean Michel Blanquer doit demissioner de son poste le plus tot possible. ', mention.id)
+            
 while True:
     reply_to_tweets()
     time.sleep(45)

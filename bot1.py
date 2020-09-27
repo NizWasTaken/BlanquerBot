@@ -61,6 +61,12 @@ def reply_to_tweets():
             print('responding back with image...')
             api.update_with_media('DeGrenouille.jpg', in_reply_to_status_id=mention.id,
                                      auto_populate_reply_metadata=True)
+            
+        elif 'mediavenir' in mention.full_text.lower():
+            print('found mention')
+            print('responding back...')
+            api.update_status('absolument @' + mention.user.screen_name +
+                    ', #liberezmediavenir ', mention.id)
 while True:
     reply_to_tweets()
     time.sleep(45)

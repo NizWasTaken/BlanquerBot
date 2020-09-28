@@ -4,14 +4,16 @@
 import tweepy
 import time
 
+
 CONSUMER_KEY = 'xxxx'
 CONSUMER_SECRET = 'xxxx'
-ACCESS_KEY = 'xxxx'
+ACCESS_KEY = 'xxxx-xxxx'
 ACCESS_SECRET = 'xxxx'
 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
 api = tweepy.API(auth)
+
 
 FILE_NAME = 'last_seen_id.txt'
 
@@ -43,37 +45,38 @@ def reply_to_tweets():
             print('responding back...')
             api.update_status('effectivement @' + mention.user.screen_name +
                     ', il faut fermer les ecoles !', mention.id)
-        
+
         elif 'israel' in mention.full_text.lower():
             print('found mention')
             print('responding back...')
             api.update_status('erreur 404 @' + mention.user.screen_name +
                     ', voulez-vous dire la Palestine?', mention.id)
-            
+
         elif 'cuisine' in mention.full_text.lower():
             print('found mention')
             print('responding back...')
             api.update_status('oui @' + mention.user.screen_name +
-                    ', elle doit revenir a sa cuisine !', mention.id)
-            
+                    ', la place de la femme cest a la cuisine !', mention.id)
+
         elif 'grenouille' in mention.full_text.lower():
             print('found mention')
             print('responding back with image...')
             api.update_with_media('DeGrenouille.jpg', in_reply_to_status_id=mention.id,
                                      auto_populate_reply_metadata=True)
-            
-        elif 'mediavenir' in mention.full_text.lower():
-            print('found mention')
-            print('responding back...')
-            api.update_status('absolument @' + mention.user.screen_name +
-                    ', #liberezmediavenir ', mention.id)
-            
+       
         elif 'demission' in mention.full_text.lower():
             print('found mention')
             print('responding back...')
             api.update_status('oui @' + mention.user.screen_name +
                     ', Jean Michel Blanquer doit demissioner de son poste le plus tot possible. ', mention.id)
-            
+
+        elif 'mediavenir' in mention.full_text.lower():
+            print('found mention')
+            print('responding back...')
+            api.update_status('absolument @' + mention.user.screen_name +
+                    ', #liberezmediavenir ', mention.id)
+
+
 while True:
     reply_to_tweets()
     time.sleep(45)
